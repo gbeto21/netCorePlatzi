@@ -16,10 +16,19 @@ namespace CoreEscuela.Entidades
 
         public string Ciudad { get; set; }
 
+        public TiposEscuela TipoEscuela { get; set; }
+
         #region Constructors
 
-        public Escuela(string nombre, int año) => (Nombre, AñoCreación) = (nombre,año);
+        public Escuela(string nombre, int año) => (Nombre, AñoCreación) = (nombre, año);
 
+        #endregion
+
+        #region Métodos públicos
+        public override string ToString()
+        {
+            return $"Nombre: {Nombre}, Tipo: {TipoEscuela} \nPaís: {País}, Ciudad: {Ciudad}";
+        }
         #endregion
 
     }
