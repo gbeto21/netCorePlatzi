@@ -9,7 +9,8 @@ namespace CoreEscuela
         {
             var escuela = new Escuela("Platzi Academy", 2012, TiposEscuela.Primaria, ciudad: "Bogota", pais: "Colombia");
 
-            var curso1 = new Curso()
+            var cursos = new Curso[3];
+            cursos[0] = new Curso()
             {
                 Nombre = "101"
             };
@@ -19,16 +20,21 @@ namespace CoreEscuela
                 Nombre = "201"
             };
 
-            var curso3 = new Curso()
+            cursos[1] = curso2;
+
+            cursos[2] = new Curso
             {
                 Nombre = "301"
             };
 
             Console.WriteLine(escuela);
             Console.WriteLine(new String('*', 30));
-            Console.WriteLine($"{curso1.Nombre}, {curso1.UniqueId}");
-            Console.WriteLine($"{curso2.Nombre}, {curso2.UniqueId}");
-            Console.WriteLine($"{curso3.Nombre}, {curso3.UniqueId}");
+            ImprimirCursos(cursos);
+        }
+
+        private static void ImprimirCursos(Curso[] cursos)
+        {
+            
         }
     }
 }
