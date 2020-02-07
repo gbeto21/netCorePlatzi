@@ -9,39 +9,9 @@ namespace CoreEscuela
     {
         static void Main(string[] args)
         {
-            var escuela = new Escuela("Platzi Academy", 2012, TiposEscuela.Primaria, ciudad: "Bogota", pais: "Colombia");
-
-            escuela.Cursos = new List<Curso>(){
-                new Curso() { Nombre = "101" },
-                new Curso() { Nombre = "201" },
-                new Curso { Nombre = "301" }
-            };
-
-            escuela.Cursos.Add(new Curso { Nombre = "102", Jornada = TiposJornada.Tarde });
-            escuela.Cursos.Add(new Curso { Nombre = "202", Jornada = TiposJornada.Tarde });
-
-            var cursos = new List<Curso>(){
-                new Curso() { Nombre = "401" },
-                new Curso() { Nombre = "501" },
-                new Curso { Nombre = "502" }
-            };
-
-            Curso c = new Curso() { Nombre = "Verano", Jornada = TiposJornada.Noche };
-            escuela.Cursos.Add(c);
-            escuela.Cursos.AddRange(cursos);
-
-            WriteLine($"Hash curso: {c.GetHashCode()}");
-
-            // escuela.Cursos.RemoveAll(delegate (Curso c)
-            // {
-            //     return c.Nombre == "Verano";
-            // });
-
-            escuela.Cursos.RemoveAll((c) => c.Nombre == "502");
-
-            WriteLine(escuela);
-            WriteLine(new String('*', 30));
-            ImprimirCursos(escuela.Cursos.ToArray());
+            var engine = new EscuelaEngine();
+            engine.Inicializar();
+            ImprimirCursos(engine.Escuela.Cursos.ToArray());
 
         }
 
