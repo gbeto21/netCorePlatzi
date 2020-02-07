@@ -18,6 +18,8 @@ namespace CoreEscuela.Entidades
 
         public TiposEscuela TipoEscuela { get; set; }
 
+        public Curso[] Cursos { get; set; }
+
         #region Constructors
 
         public Escuela(string nombre, int año) => (Nombre, AñoCreación) = (nombre, año);
