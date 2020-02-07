@@ -28,22 +28,21 @@ namespace CoreEscuela
 
             Curso c = new Curso() { Nombre = "Verano", Jornada = TiposJornada.Noche };
             escuela.Cursos.Add(c);
-            // escuela.Cursos.Remove(c);
-            WriteLine($"Hash curso: {c.GetHashCode()}");
-            Predicate<Curso> miAlgoritmo = Predicado;
-            escuela.Cursos.RemoveAll(miAlgoritmo);
             escuela.Cursos.AddRange(cursos);
 
+            WriteLine($"Hash curso: {c.GetHashCode()}");
+
+            // escuela.Cursos.RemoveAll(delegate (Curso c)
+            // {
+            //     return c.Nombre == "Verano";
+            // });
+
+            escuela.Cursos.RemoveAll((c) => c.Nombre == "502");
 
             WriteLine(escuela);
             WriteLine(new String('*', 30));
             ImprimirCursos(escuela.Cursos.ToArray());
 
-        }
-
-        private static bool Predicado(Curso pCurso)
-        {
-            return pCurso.Nombre == "Verano";
         }
 
         private static void ImprimirCursos(Curso[] cursos)
