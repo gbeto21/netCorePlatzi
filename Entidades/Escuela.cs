@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace CoreEscuela.Entidades
 {
     class Escuela
@@ -18,7 +20,7 @@ namespace CoreEscuela.Entidades
 
         public TiposEscuela TipoEscuela { get; set; }
 
-        public Curso[] Cursos { get; set; }
+        public List<Curso> Cursos { get; set; }
 
         #region Constructors
 
