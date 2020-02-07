@@ -33,7 +33,15 @@ namespace CoreEscuela
             WriteLine($"Objeto Base ID: {objDum.UniqueId}");
             WriteLine($"Objeto Base Type: {objDum.GetType()}");
 
-            alumnoTest = (Alumno)ob;
+            var evaluacion = new Evaluación { Nombre = "Math", Nota = 4.4f };
+            Printer.WriteTitle("Evaluacion");
+            WriteLine($"Evaluacion: {evaluacion.Nombre}");
+            WriteLine($"Evaluacion ID: {evaluacion.UniqueId}");
+            WriteLine($"Evaluacion Nota: {evaluacion.Nota}");
+            WriteLine($"Evaluacion Type: {evaluacion.GetType()}");
+
+            ob = evaluacion;
+            
         }
 
         private static void ImprimirCursos(Curso[] cursos)
