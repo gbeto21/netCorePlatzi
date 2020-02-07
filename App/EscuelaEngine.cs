@@ -28,7 +28,28 @@ namespace CoreEscuela
 
         private void CargarEvaluaciones()
         {
-            throw new NotImplementedException();
+            foreach (var curso in Escuela.Cursos)
+            {
+                foreach (var asignatura in curso.Asignaturas)
+                {
+                    foreach (var alumno in curso.Alumnos)
+                    {
+                        var rnd = new Random(System.Environment.TickCount);
+
+                        for (int i = 0; i < 5; i++)
+                        {
+                            var ev = new Evaluación
+                            {
+                                Asignatura = asignatura,
+                                Nombre = $"{asignatura.Nombre} Ev#{i + 1}",
+                                Nota = (float)(5 * rnd.NextDouble()),
+                                Alumno = alumno
+                            };
+                            alumno.Evaluaciones.Add(ev);
+                        }
+                    }
+                }
+            }
         }
 
         private void CargarAsignaturas()
@@ -75,32 +96,6 @@ namespace CoreEscuela
                 int cantRandom = rnd.Next(5, 20);
                 c.Alumnos = GenerarAlumnosAlAzar(cantRandom);
             }
-        }
-
-        private void CargarEvaluaciones(int qty = 5)
-        {
-            foreach (var curso in Escuela.Cursos)
-            {
-                foreach (var asignatura in curso.Asignaturas)
-                {
-                    for (int i = 0; i < qty; i++)
-                    {
-                        var random = new Random(System.Environment.TickCount);
-                        var evaluaciones = from alum in curso.Alumnos
-                                           select new Evaluaciones
-                                           {
-                                               Alumno = alum,
-                                               Asignatura = asignatura,
-                                               Nombre = $"Curso {curso.Nombre} Evaluación {i + 1} {asignatura.Nombre}",
-                                               Nota = (float)(5 * random.NextDouble())
-                                           };
-                        Evaluaciones.AddRange(evaluaciones);
-                    }
-
-                }
-
-            }
-
         }
 
     }
