@@ -76,5 +76,39 @@ namespace CoreEscuela
                 c.Alumnos = GenerarAlumnosAlAzar(cantRandom);
             }
         }
+
+        private void CargarEvaluaciones(int qty = 5)
+        {
+            foreach (var curso in Escuela.Cursos)
+            {
+                foreach (var asignatura in curso.Asignaturas)
+                {
+                    for (int i = 0; i < qty; i++)
+                    {
+                        var random = new Random(System.Environment.TickCount);
+                        var evaluaciones = from alum in curso.Alumnos
+                                           select new Evaluaciones
+                                           {
+                                               Alumno = alum,
+                                               Asignatura = asignatura,
+                                               Nombre = $"Curso {curso.Nombre} Evaluación {i + 1} {asignatura.Nombre}",
+                                               Nota = (float)(5 * random.NextDouble())
+                                           };
+                        Evaluaciones.AddRange(evaluaciones);
+                    }
+
+                }
+
+            }
+
+        }
+
+        private floatNoteSimulator()
+        {
+            var rand = new Random();
+            floatresult = (float)Math.Round(rand.NextDouble() * 5, 2);
+            returnresult;
+        }
+
     }
 }
