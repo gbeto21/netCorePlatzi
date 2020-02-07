@@ -19,6 +19,12 @@ namespace CoreEscuela
             WriteLine(escuela);
             WriteLine(new String('*', 30));
             ImprimirCursos(escuela.Cursos);
+
+            if (true)
+            {
+
+            }
+
         }
 
         private static void ImprimirCursos(Curso[] cursos)
