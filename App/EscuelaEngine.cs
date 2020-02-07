@@ -103,12 +103,5 @@ namespace CoreEscuela
 
         }
 
-        private floatNoteSimulator()
-        {
-            var rand = new Random();
-            floatresult = (float)Math.Round(rand.NextDouble() * 5, 2);
-            returnresult;
-        }
-
     }
 }
