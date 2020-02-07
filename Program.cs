@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CoreEscuela.Util;
 using CoreEscuela.Entidades;
 using static System.Console;
 
@@ -11,6 +10,7 @@ namespace CoreEscuela
         {
             var engine = new EscuelaEngine();
             engine.Inicializar();
+            Printer.WriteTitle("Cursos escuela.");
             ImprimirCursos(engine.Escuela.Cursos.ToArray());
 
         }
