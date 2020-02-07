@@ -40,8 +40,20 @@ namespace CoreEscuela
             WriteLine($"Evaluacion Nota: {evaluacion.Nota}");
             WriteLine($"Evaluacion Type: {evaluacion.GetType()}");
 
-            ob = evaluacion;
-            
+            // ob = evaluacion;
+            if (ob is Alumno)
+            {
+                Alumno alumnoCast = (Alumno)(ob);
+            }
+
+            Alumno alumnoCast2 = ob as Alumno;
+            if (alumnoCast2 != null)
+            {
+
+            }
+
+            var objetos = engine.GetObjetosEscuela();
+
         }
 
         private static void ImprimirCursos(Curso[] cursos)
