@@ -84,7 +84,26 @@ namespace CoreEscuela
         {
             Dictionary<LlaveDiccionario, IEnumerable<ObjetoEscuelaBase>> diccionario = new Dictionary<LlaveDiccionario, IEnumerable<ObjetoEscuelaBase>>();
             diccionario.Add(LlaveDiccionario.Escuela, new[] { Escuela });
-            diccionario.Add(LlaveDiccionario.Curso, Escuela.Cursos.Cast<ObjetoEscuelaBase>());
+            diccionario.Add(LlaveDiccionario.Curso, Escuela.Cursos);
+
+            var evaluaciones = new List<Evaluación>();
+            var asignaturas = new List<Asignatura>();
+            var alumnos = new List<Alumno>();
+
+            foreach (var curso in Escuela.Cursos)
+            {
+                asignaturas.AddRange(curso.Asignaturas);
+                alumnos.AddRange(curso.Alumnos);
+
+                foreach (var alumno in curso.Alumnos)
+                    evaluaciones.AddRange(alumno.Evaluaciones);
+
+            }
+
+            diccionario.Add(LlaveDiccionario.Evaluación, evaluaciones);
+            diccionario.Add(LlaveDiccionario.Asignatura, asignaturas);
+            diccionario.Add(LlaveDiccionario.Alumno, alumnos);
+
             return diccionario;
         }
 
