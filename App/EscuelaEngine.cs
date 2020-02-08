@@ -70,6 +70,16 @@ namespace CoreEscuela
             return lista;
         }
 
+        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+                bool traerEvaluaciones = true,
+                bool traerAlumnos = true,
+                bool traerAsignaturas = true,
+                bool traerCursos = true
+                )
+        {
+            return GetObjetosEscuela(out int dummy, out dummy, out dummy, out dummy);
+        }
+
         #region Metodos de carga de datos
 
         private void CargarEvaluaciones()
