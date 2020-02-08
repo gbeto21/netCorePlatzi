@@ -16,15 +16,6 @@ namespace CoreEscuela
 
             var objetos = engine.GetObjetosEscuela();
 
-            var iLugares = from iLugar in objetos
-                           where iLugar is ILugar
-                           select (ILugar)iLugar;
-
-            var alumnos = from alumno in objetos
-                          where alumno is Alumno
-                          select (Alumno)alumno;
-
-            // engine.Escuela.LimpiarLugar();
 
         }
 
