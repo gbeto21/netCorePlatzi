@@ -80,7 +80,13 @@ namespace CoreEscuela
             return GetObjetosEscuela(out int dummy, out dummy, out dummy, out dummy);
         }
 
-// public Dictionary<int, string>
+        public Dictionary<string, IEnumerable<ObjetoEscuelaBase>> GetDiccionarioObjetos()
+        {
+            Dictionary<string, IEnumerable<ObjetoEscuelaBase>> diccionario = new Dictionary<string, IEnumerable<ObjetoEscuelaBase>>();
+            diccionario.Add("Escuela", new[] { Escuela });
+            diccionario.Add("Cursos", Escuela.Cursos.Cast<ObjetoEscuelaBase>());
+            return diccionario;
+        }
 
         #region Metodos de carga de datos
 
