@@ -14,7 +14,10 @@ namespace CoreEscuela
             Printer.WriteTitle("Cursos escuela.");
             ImprimirCursos(engine.Escuela.Cursos.ToArray());
 
-            var objetos = engine.GetObjetosEscuela();
+            var objetos = engine.GetObjetosEscuela(out int conteoEvaluaciones,
+                out int conteoCursos,
+                out int conteoAsignaturas,
+                out int conteoAlumnos);
 
 
         }
