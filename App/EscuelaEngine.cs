@@ -43,6 +43,8 @@ namespace CoreEscuela
             return lista;
         }
 
+        #region Metodos de carga de datos
+
         private void CargarEvaluaciones()
         {
             foreach (var curso in Escuela.Cursos)
@@ -114,6 +116,8 @@ namespace CoreEscuela
                 c.Alumnos = GenerarAlumnosAlAzar(cantRandom);
             }
         }
+
+        #endregion
 
     }
 }
