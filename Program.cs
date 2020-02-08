@@ -14,7 +14,7 @@ namespace CoreEscuela
             engine.Inicializar();
             Printer.WriteTitle("Cursos escuela.");
             ImprimirCursos(engine.Escuela.Cursos.ToArray());
-            engine.ImprimirDiccionario(engine.GetDiccionarioObjetos());
+            engine.ImprimirDiccionario(engine.GetDiccionarioObjetos(), true);
         }
 
         private static void ImprimirCursos(Curso[] cursos)

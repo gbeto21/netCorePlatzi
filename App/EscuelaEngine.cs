@@ -34,10 +34,30 @@ namespace CoreEscuela
                 Printer.WriteTitle(elemento.Key.ToString());
                 foreach (var valor in elemento.Value)
                 {
-                    if ((valor is Evaluación) && pImprimirEvaluacion)
-                        Console.WriteLine(valor);
-                    else
-                        Console.WriteLine(valor);
+
+                    switch (elemento.Key)
+                    {
+                        case LlaveDiccionario.Evaluación:
+                            if (pImprimirEvaluacion)
+                                Console.WriteLine(valor);
+                            break;
+
+                        case LlaveDiccionario.Escuela:
+                            Console.WriteLine($"Escuela: {valor}.");
+                            break;
+
+                        case LlaveDiccionario.Alumno:
+                            Console.WriteLine($"Alumno: {valor.Nombre}");
+                            break;
+
+                        case LlaveDiccionario.Curso:
+                            Console.WriteLine($"Curso: {valor.Nombre}, Alumnos {(valor as Curso).Alumnos.Count}");
+                            break;
+
+                        default:
+                            Console.WriteLine(valor);
+                            break;
+                    }
 
                 }
             }
@@ -141,7 +161,7 @@ namespace CoreEscuela
                             {
                                 Asignatura = asignatura,
                                 Nombre = $"{asignatura.Nombre} Ev#{i + 1}",
-                                Nota = (float)(5 * rnd.NextDouble()),
+                                Nota = MathF.Round((float)(5 * rnd.NextDouble()), 2),
                                 Alumno = alumno
                             };
                             alumno.Evaluaciones.Add(ev);
