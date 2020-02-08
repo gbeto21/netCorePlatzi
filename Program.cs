@@ -27,12 +27,6 @@ namespace CoreEscuela
             WriteLine($"Objeto Escuela ID: {ob.UniqueId}");
             WriteLine($"Objeto Escuela Type: {ob.GetType()}");
 
-            var objDum = new ObjetoEscuelaBase();
-            Printer.WriteTitle("Objeto base");
-            WriteLine($"Objeto Base: {objDum.Nombre}");
-            WriteLine($"Objeto Base ID: {objDum.UniqueId}");
-            WriteLine($"Objeto Base Type: {objDum.GetType()}");
-
             var evaluacion = new Evaluación { Nombre = "Math", Nota = 4.4f };
             Printer.WriteTitle("Evaluacion");
             WriteLine($"Evaluacion: {evaluacion.Nombre}");
