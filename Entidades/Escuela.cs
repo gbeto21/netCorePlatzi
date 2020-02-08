@@ -45,7 +45,7 @@ namespace CoreEscuela.Entidades
             {
                 curso.LimpiarLugar();
             }
-            Console.WriteLine($"Escuela {Nombre} limpio");
+            Printer.WriteTitle($"Escuela {Nombre} limpio");
         }
         #endregion
 
