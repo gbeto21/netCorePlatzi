@@ -26,7 +26,7 @@ namespace CoreEscuela
 
         }
 
-        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
         out int conteoEvaluaciones,
         out int conteoCursos,
         out int conteoAsignaturas,
@@ -67,10 +67,10 @@ namespace CoreEscuela
                     }
                 }
             }
-            return lista;
+            return lista.AsReadOnly();
         }
 
-        public List<ObjetoEscuelaBase> GetObjetosEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetosEscuela(
                 bool traerEvaluaciones = true,
                 bool traerAlumnos = true,
                 bool traerAsignaturas = true,
