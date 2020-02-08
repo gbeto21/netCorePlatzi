@@ -27,14 +27,18 @@ namespace CoreEscuela
 
         }
 
-        public void ImprimirDiccionario(Dictionary<LlaveDiccionario, IEnumerable<ObjetoEscuelaBase>> pDiccionario)
+        public void ImprimirDiccionario(Dictionary<LlaveDiccionario, IEnumerable<ObjetoEscuelaBase>> pDiccionario, bool pImprimirEvaluacion = false)
         {
             foreach (var elemento in pDiccionario)
             {
                 Printer.WriteTitle(elemento.Key.ToString());
                 foreach (var valor in elemento.Value)
                 {
-                    Console.WriteLine(valor);
+                    if ((valor is Evaluación) && pImprimirEvaluacion)
+                        Console.WriteLine(valor);
+                    else
+                        Console.WriteLine(valor);
+
                 }
             }
         }
