@@ -2,6 +2,7 @@
 using CoreEscuela.Entidades;
 using static System.Console;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace CoreEscuela
 {
@@ -14,11 +15,24 @@ namespace CoreEscuela
             Printer.WriteTitle("Cursos escuela.");
             ImprimirCursos(engine.Escuela.Cursos.ToArray());
 
-            var objetos = engine.GetObjetosEscuela(out int conteoEvaluaciones,
-                out int conteoCursos,
-                out int conteoAsignaturas,
-                out int conteoAlumnos);
+            Dictionary<int, string> diccionario = new Dictionary<int, string>();
+            diccionario.Add(10, "gbeto21");
+            diccionario.Add(23, "lorem ipsum");
 
+            foreach (var keyValPair in diccionario)
+            {
+                WriteLine($"Key: {keyValPair.Key} Valor: {keyValPair.Value} ");
+            }
+
+            diccionario[0] = "Pekermal";
+            Printer.WriteTitle("Acceso a Diccionario");
+            WriteLine(diccionario[0]);
+
+            Printer.WriteTitle(" SEGUNDO DICCIONARIO ");
+            var segundo = new Dictionary<string, string>();
+            segundo["Luna"] = "Cuerpo que guira alredor de la tierra";
+            WriteLine(segundo["Luna"]);
+            
 
         }
 

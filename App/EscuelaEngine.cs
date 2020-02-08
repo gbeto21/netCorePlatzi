@@ -80,6 +80,8 @@ namespace CoreEscuela
             return GetObjetosEscuela(out int dummy, out dummy, out dummy, out dummy);
         }
 
+// public Dictionary<int, string>
+
         #region Metodos de carga de datos
 
         private void CargarEvaluaciones()
