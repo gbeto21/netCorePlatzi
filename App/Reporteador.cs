@@ -64,16 +64,16 @@ namespace CoreEscuela.App
             foreach (var asignatura in evaluaciones)
             {
                 var dummy = from eva in asignatura.Value
+                            group eva by eva.Alumno.UniqueId
+                            into grupo
                             select new
                             {
-                                eva.Alumno.UniqueId,
-                                eva.Nota
+                                ALumnoId = grupo.Key,
+                                Promedio = grupo.Average(evalu => evalu.Nota)
                             };
-
             }
 
             return respuesta;
         }
-
     }
 }
