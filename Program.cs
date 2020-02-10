@@ -65,6 +65,11 @@ namespace CoreEscuela
                 {
                     Printer.WriteTitle("El valor de la nota no es un numero valido");
                 }
+                finally
+                {
+                    Printer.WriteTitle("FINALY");
+
+                }
             }
         }
 
