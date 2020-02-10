@@ -18,6 +18,7 @@ namespace CoreEscuela
             var reporteador = new Reporteador(engine.GetDiccionarioObjetos());
             var evaluaciones = reporteador.GetListaEvaluaciones();
             var asignaturas = reporteador.GetListaAsignaturas();
+            var evaluacionesAsignatura = reporteador.GetListaEvaluacionesAsignatura();
         }
 
         private static void AccionEvento(object sender, EventArgs e)
