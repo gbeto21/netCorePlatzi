@@ -17,14 +17,28 @@ namespace CoreEscuela.App
             diccionario = pDiccionario;
         }
 
-        public IEnumerable<Escuela> GetListaEvaluaciones()
+        public IEnumerable<Evaluación> GetListaEvaluaciones()
         {
-            // var lista = diccionario.GetValueOrDefault(LlaveDiccionario.Escuela);
-            IEnumerable<Escuela> escuela = null;
-            if (diccionario.TryGetValue(LlaveDiccionario.Escuela, out IEnumerable<ObjetoEscuelaBase> lista))
-                escuela = lista.Cast<Escuela>();
+            if (diccionario.TryGetValue(LlaveDiccionario.Evaluación, out IEnumerable<ObjetoEscuelaBase> lista))
+                return lista.Cast<Evaluación>();
 
-            return escuela;
+            return new List<Evaluación>();
+        }
+
+        public IEnumerable<string> GetListaAsignaturas()
+        {
+            var evaluaciones = GetListaEvaluaciones();
+
+            return (from evaluacion in evaluaciones
+                        // where evaluacion.Nota >= 3.0f
+                    select evaluacion.Asignatura.Nombre).Distinct();
+        }
+
+        public Dictionary<string, IEnumerable<Evaluación>> GetListaEEvaluacionesAsignatura()
+        {
+            Dictionary<string, IEnumerable<Evaluación>> evaluaciones = new Dictionary<string, IEnumerable<Evaluación>>();
+
+            return evaluaciones;
         }
     }
 }
