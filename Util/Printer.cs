@@ -17,5 +17,10 @@ namespace CoreEscuela.Util
             WriteLine($"| {titulo} |");
             DrawLine(tamaño);
         }
+
+        public static void PresioneEnter()
+        {
+            WriteLine("Presione ENTER para continuar");
+        }
     }
 }
