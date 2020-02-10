@@ -55,5 +55,25 @@ namespace CoreEscuela.App
 
             return evaluaciones;
         }
+
+        public Dictionary<string, IEnumerable<Object>> GetPromedioAlumnoAsignatura()
+        {
+            var respuesta = new Dictionary<string, IEnumerable<object>>();
+            var evaluaciones = GetListaEvaluacionesAsignatura();
+
+            foreach (var asignatura in evaluaciones)
+            {
+                var dummy = from eva in asignatura.Value
+                            select new
+                            {
+                                eva.Alumno.UniqueId,
+                                eva.Nota
+                            };
+
+            }
+
+            return respuesta;
+        }
+
     }
 }
